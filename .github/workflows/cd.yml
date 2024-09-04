@@ -1,0 +1,16 @@
+name: CD
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+    - completed
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Deployment to Hugging Face
+      env:
+        HF: ${{ secrets.HF }}
+      run: make deploy HF=$HF
