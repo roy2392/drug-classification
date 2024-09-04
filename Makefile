@@ -28,9 +28,9 @@ hf-login:
 	huggingface-cli login --token $(HF)
 
 push-hub: 
-	huggingface-cli upload roy2392/Drug-Classification ./App --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload roy2392/Drug-Classification ./Model /Model --repo-type=space --commit-message="Sync Model"
-	huggingface-cli upload roy2392/Drug-Classification ./Results /Metrics --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload roy2392/Drug-Classification ./app --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload roy2392/Drug-Classification ./model /model --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload roy2392/Drug-Classification ./results /metrics --repo-type=space --commit-message="Sync Model"
 
 deploy: hf-login push-hub
 
