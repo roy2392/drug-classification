@@ -42,4 +42,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
-          repository: "lidorg-dev/drug-classification"
+          repository: "roy2392/drug-classification"

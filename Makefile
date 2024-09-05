@@ -10,7 +10,7 @@ train:
 
 eval:
 	echo "## Model Metrics" > report.md
-	cat ./Results/metrics.txt >> report.md
+	cat ./results/metrics.txt >> report.md
 
 	echo '\n## Confusion Matrix Plot' >> report.md
 	echo '![Confusion Matrix](./Results/model_results.png)' >> report.md
@@ -28,9 +28,9 @@ hf-login:
 	huggingface-cli login --token $(HF)
 
 push-hub:
-	huggingface-cli upload lidorlg/Drug-Classification ./App --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload lidorlg/Drug-Classification ./Model /Model --repo-type=space --commit-message="Sync Model"
-	huggingface-cli upload lidorlg/Drug-Classification ./Results /Metrics --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload roy2392/drug-classification ./app --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload roy2392/drug-classification ./model /model --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload roy2392/drug-classification ./results /metrics --repo-type=space --commit-message="Sync Model"
 
 deploy: hf-login push-hub
 
